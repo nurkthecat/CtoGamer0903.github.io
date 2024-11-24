@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字の不透明度調整</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #text {
+            font-size: 48px;
+            font-weight: bold;
+            opacity: 0; /* 初期値: 透明 */
+            transition: opacity 0.3s ease;
+        }
+        #slider-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="text">河野太郎</div>
+    <div id="slider-container">
+        <input type="range" id="opacity-slider" min="0" max="100" value="0">
+    </div>
+    <script>
+        const textElement = document.getElementById('text');
+        const slider = document.getElementById('opacity-slider');
+
+        slider.addEventListener('input', () => {
+            const opacity = slider.value / 100;
+            textElement.style.opacity = opacity;
+        });
+    </script>
+</body>
+</html>
+
